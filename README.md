@@ -15,6 +15,12 @@ Ce format de fichier a été développé par Microsoft dans le but de standardis
 ## RFC :
 >Les RFC (Request For Comments) sont un ensemble de documents qui font >référence auprès de la Communauté Internet et qui décrivent, spécifient, >aident à l'implémentation, standardisent et débattent de la majorité des >normes, standards, technologies et protocoles liés à Internet et aux >réseaux en général.
 
+Ce format de fichier conserve le format HTML d'origine de l'email ainsi que les headers. Par exemple lorsque l'on envoie un email avec un fichier PDF en pièce jointe via notre serveur web sur notre application, on va déterminer les headers ci-dessous :
+`
+Content-Disposition: attachment; filename="filename.pdf"
+Content-Transfer-Encoding: base64
+Content-Type: application/pdf; name="filename.pdf"
+`
+Cette partie se retrouvera donc sur le fichier .eml.
 ## Sécurité
-Ce fichier conserve le format HTML d'origine de l'email ainsi que les headers.
-On peut donc utiliser ce format de fichier afin d'analyser les emails frauduleux et décoder le contenu des pièces jointes frauduleuses. 
+On peut utiliser ce format de fichier afin d'analyser les emails frauduleux et décoder le contenu des pièces jointes frauduleuses. 
