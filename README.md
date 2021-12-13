@@ -2,7 +2,7 @@ Electronic Mail
 
 # Explications globales 
 
-Il s'agit d'un format de fichier email sauvegardé par la boîte mail que l'on utilise (ex: Outlook, Apple Mail etc...). Ce fichier contient le contenu du message, le sujet, la date, l'expéditeur et le(s) destinataire(s). On peut donc sauvegarder un email reçu sur notre ordinateur afin de le relire via notre propre éditeur de texte favoris (bloc-notes par exemple), mais cela peut paraître compliqué à lire car nous aurons le contenu brut de l'eamil.
+Il s'agit d'un format de fichier email sauvegardé par la boîte mail que l'on utilise (ex: Outlook, Apple Mail etc...). Ce fichier contient le contenu du message, le sujet, la date, l'expéditeur et le(s) destinataire(s). On peut donc sauvegarder un email reçu sur notre ordinateur afin de le relire via notre propre éditeur de texte favoris (bloc-notes par exemple), mais cela peut paraître compliqué à lire car nous aurons le contenu brut de l'email.
 
 ![Exemple du contenu d'un email au format .eml](./exemple.png)
 
