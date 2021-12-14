@@ -1,23 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.IO;
-using System.Diagnostics;
-
-using ADODB;
-using System.Net.Mail;
-using System.Reflection;
 
 namespace LecteurEMLFiles
 {
@@ -26,6 +10,7 @@ namespace LecteurEMLFiles
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string MyDirectory = @"__YOUR_DIRECTORY__\sources\";
         public class DataObject
         {
             public string A { get; set; }
@@ -61,15 +46,13 @@ namespace LecteurEMLFiles
         {
             InitializeComponent();
             CDO.Message msg = null;
-
             InitializeContent(msg);
+
             //Taille type du message et pièces jointes
-            string path = @"__YOUR_DIRECTORY__\sources";
-            if (Directory.Exists(path))
+
+            if (Directory.Exists(this.MyDirectory))
             {
-                string[] files = Directory.GetFiles(path, "*.eml")
-                            .Select(Path.GetFileName)
-                            .ToArray();
+                string[] files = Directory.GetFiles(this.MyDirectory, "*.eml").Select(Path.GetFileName).ToArray();
 
                 foreach (string file in files)
                 {
@@ -80,22 +63,7 @@ namespace LecteurEMLFiles
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string path = @"J:\Projets\C#\APPS\LecteurEMLFiles\sources\" + this.File_list.SelectedItem + ".eml";
-
-            //if (File.Exists(path))
-            //{
-
-            //    Debug.WriteLine("Click"); 
-            //    using (FileStream fs = File.OpenRead(path))
-            //    {
-            //        byte[] b = new byte[1024];
-            //        UTF8Encoding temp = new UTF8Encoding(true);
-            //        while (fs.Read(b, 0, b.Length) > 0)
-            //        {
-            //            Debug.WriteLine(temp.GetString(b));
-            //        }
-            //    }
-            //}
+            string path = this.MyDirectory + this.File_list.SelectedItem + ".eml";
             InitializeContent(LoadEmlFromFile(path));
         }
 
