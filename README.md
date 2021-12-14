@@ -24,3 +24,7 @@ Content-Type: application/pdf; name="filename.pdf"
 Cette partie se retrouvera donc sur le fichier .eml.
 ## Sécurité
 On peut utiliser ce format de fichier afin d'analyser les emails frauduleux et décoder le contenu des pièces jointes frauduleuses. 
+
+# Lecteur de fichier EML
+Le lecteur utilise les références COM CDO et ADODB.
+Lancer le lecteur, sélectionnez votre fichier à lire puis cliquez sur lire.

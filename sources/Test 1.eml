@@ -1,0 +1,18 @@
+MIME-Version: 1.0
+Date: Mon, 13 Dec 2021 11:21:07 +0400
+Subject: Test 1
+From: I'm groot <sender@gmail.com>
+To: John Doe <john.doe@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000a76b0305d301eab3"
+
+--000000000000a76b0305d301eab3
+Content-Type: text/plain; charset="UTF-8"
+
+Hello world ! 1
+
+--000000000000a76b0305d301eab3
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">Hello world ! 1</div>
+
+--000000000000a76b0305d301eab3--
