@@ -31,4 +31,4 @@ Ajoutez votre dossier où se trouve le contenu du GIT.
 `public string MyDirectory = @"__YOUR_DIRECTORY__\sources\";` à la ligne 13.
 Lancez le lecteur, sélectionnez votre fichier à lire puis cliquez sur lire.
 L'exemple par défaut devrait vous afficher :
-[Exemple 1](./Capture.png)
+![Exemple 1](./Capture.png)
