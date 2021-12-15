@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows;
 using System.IO;
+using System.Diagnostics;
 
 namespace LecteurEMLFiles
 {
@@ -10,37 +11,56 @@ namespace LecteurEMLFiles
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string MyDirectory = @"__YOUR_DIRECTORY__\sources\";
+        public string MyDirectory = @"J:\Projets\C#\APPS\LecteurEMLFiles\sources\";
         public class DataObject
         {
             public string A { get; set; }
             public string B { get; set; }
+            public string ColorA { get; set; }
+            public string ColorB { get; set; }
+            public string ForegroundA { get; set; }
+            public string ForegroundB { get; set; }
         }
 
         public void InitializeContent(CDO.Message msg)
         {
+            string colorHead = "white";
+            string backgroundHead = "gray";
+            string colorData = "black";
+            string backgroundData = "white";
+
             if (msg == null)
             {
                 var list = new System.Collections.ObjectModel.ObservableCollection<DataObject>();
-                list.Add(new DataObject() { A = "Headers", B = "Content" });
-                list.Add(new DataObject() { A = "From", B = "" });
-                list.Add(new DataObject() { A = "To", B = "" });
-                list.Add(new DataObject() { A = "Date", B = "" });
-                list.Add(new DataObject() { A = "Subject", B = "" });
-                list.Add(new DataObject() { A = "Message", B = "" });
+                list.Add(new DataObject() { A = "Headers", B = "Content", ColorA = backgroundHead, ColorB = backgroundHead, ForegroundA = colorHead, ForegroundB = colorHead});
+                list.Add(new DataObject() { A = "From", B = "", ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
+                list.Add(new DataObject() { A = "To", B = "", ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
+                list.Add(new DataObject() { A = "Date", B = "" , ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
+                list.Add(new DataObject() { A = "Subject", B = "" , ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
+                list.Add(new DataObject() { A = "Message", B = "", ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
                 this.Headers.ItemsSource = list;
             }
             else
             {
                 var list = new System.Collections.ObjectModel.ObservableCollection<DataObject>();
-                list.Add(new DataObject() { A = "Headers", B = "Content" });
-                list.Add(new DataObject() { A = "From", B = msg.From });
-                list.Add(new DataObject() { A = "To", B = msg.To });
-                list.Add(new DataObject() { A = "Date", B = msg.ReceivedTime.ToString() });
-                list.Add(new DataObject() { A = "Subject", B = msg.Subject });
-                list.Add(new DataObject() { A = "Message", B = msg.TextBody });
+                list.Add(new DataObject() { A = "Headers", B = "Content", ColorA = backgroundHead, ColorB = backgroundHead, ForegroundA = colorHead, ForegroundB = colorHead });
+                list.Add(new DataObject() { A = "From", B = msg.From, ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
+                list.Add(new DataObject() { A = "To", B = msg.To, ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
+                list.Add(new DataObject() { A = "Date", B = msg.ReceivedTime.ToString(), ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
+                list.Add(new DataObject() { A = "Subject", B = msg.Subject, ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
+                list.Add(new DataObject() { A = "Message", B = msg.TextBody, ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
+                
+                if(msg.Attachments.Count > 1)
+                {
+                    for (int i = 1; i < msg.Attachments.Count + 1; i++)
+                    {
+                        Debug.WriteLine(msg.Attachments[i].FileName);
+                        list.Add(new DataObject() { A = "Attachments " + i, B = msg.Attachments[i].FileName, ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
+                    }
+                }
                 this.Headers.ItemsSource = list;
             }
+            
         }
         public MainWindow()
         {
@@ -64,7 +84,10 @@ namespace LecteurEMLFiles
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string path = this.MyDirectory + this.File_list.SelectedItem + ".eml";
-            InitializeContent(LoadEmlFromFile(path));
+            if (File.Exists(path))
+            {
+                InitializeContent(LoadEmlFromFile(path));
+            }
         }
 
         public CDO.Message LoadEmlFromFile(String emlFileName)

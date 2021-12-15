@@ -36,8 +36,22 @@
               Width="700"
               Grid.Row="0">
                 <DataGrid.Columns >
-                    <DataGridTextColumn Binding="{Binding Path=A}" MinWidth="250" />
-                    <DataGridTextColumn Binding="{Binding Path=B}" MinWidth="450" />
+                    <DataGridTextColumn Binding="{Binding Path=A}" MinWidth="250">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextBlock.Background" Value="{Binding Path=ColorA}" />
+                                <Setter Property="TextBlock.Foreground" Value="{Binding Path=ForegroundA}" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=B}" MinWidth="450">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextBlock.Background" Value="{Binding Path=ColorB}" />
+                                <Setter Property="TextBlock.Foreground" Value="{Binding Path=ForegroundB}" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
 
