@@ -54,8 +54,10 @@ namespace LecteurEMLFiles
                 {
                     for (int i = 1; i < msg.Attachments.Count + 1; i++)
                     {
-                        Debug.WriteLine(msg.Attachments[i].FileName);
-                        list.Add(new DataObject() { A = "Attachments " + i, B = msg.Attachments[i].FileName, ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
+                        Debug.WriteLine(msg.Attachments[i].ContentMediaType);
+                        Debug.WriteLine(msg.Attachments[i].GetStream().Size);
+                        Debug.WriteLine(msg.Attachments[i].GetDecodedContentStream().Size);
+                        list.Add(new DataObject() { A = "Attachment " + i, B = msg.Attachments[i].FileName + " (" + msg.Attachments[i].ContentMediaType + ")" + " - " + (msg.Attachments[i].GetDecodedContentStream().Size / 1000) + "Ko", ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
                     }
                 }
                 this.Headers.ItemsSource = list;
@@ -94,7 +96,7 @@ namespace LecteurEMLFiles
         {
             CDO.Message msg = new CDO.Message();
             ADODB.Stream stream = new ADODB.Stream();
-
+            
             stream.Open(Type.Missing, ADODB.ConnectModeEnum.adModeUnknown, ADODB.StreamOpenOptionsEnum.adOpenStreamUnspecified, String.Empty, String.Empty);
             stream.LoadFromFile(emlFileName);
             stream.Flush();
