@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ipkP5j8ccvJ9vMTdmCHFTvyDeJt4QsLqq38/dftTURDtUJSiafMtYAZFw9OcnL91+M6UWMM9vAFmjm60z7KVRQ==",
+  "dgSpecHash": "xCMqtcCGGHJd/zvaLWZAHwXaYSA4O8O4WBUZSwDbLYN32pBdzdIcDeHYKqk9MHODZCplM94KHFtrh0AYKUPnRw==",
   "success": true,
   "projectFilePath": "J:\\Projets\\C#\\APPS\\LecteurEMLFiles\\LecteurEMLFiles\\LecteurEMLFiles.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\jhapa\\.nuget\\packages\\materialdesigncolors\\2.0.4\\materialdesigncolors.2.0.4.nupkg.sha512",
+    "C:\\Users\\jhapa\\.nuget\\packages\\materialdesignthemes\\4.3.0\\materialdesignthemes.4.3.0.nupkg.sha512"
+  ],
   "logs": []
 }

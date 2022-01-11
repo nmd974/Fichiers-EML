@@ -32,3 +32,12 @@ Ajoutez votre dossier où se trouve le contenu du GIT.
 Lancez le lecteur, sélectionnez votre fichier à lire puis cliquez sur lire.
 L'exemple par défaut devrait vous afficher :
 ![Exemple 1](./exemple1.png)
+
+#USER STORY
+
+En tant que|Je veux|Afin de|Taches
+:---|:---|:---|:---
+Utilisateur|Sélectionner un fichier type eml|Connaître le contenu du message, l'expéditeur, le nombre et la taille des pièces jointes|Maquetter l'interface utilisateur
+||||Mise en place du repo
+||||Déterminer la librairie à utiliser
+Utilisateur|Lire le contenu de la pièce jointe|Me protéger d'une possible attaque|Lire les pièces jointes et les codes associés

@@ -23,3 +23,5 @@ J:\Projets\C#\APPS\LecteurEMLFiles\LecteurEMLFiles\obj\Debug\net5.0-windows\Lect
 J:\Projets\C#\APPS\LecteurEMLFiles\LecteurEMLFiles\obj\Debug\net5.0-windows\Interop.CDO.dll
 J:\Projets\C#\APPS\LecteurEMLFiles\LecteurEMLFiles\obj\Debug\net5.0-windows\Interop.ADODB.dll
 J:\Projets\C#\APPS\LecteurEMLFiles\LecteurEMLFiles\obj\Debug\net5.0-windows\LecteurEMLFiles.csproj.ResolveComReference.cache
+J:\Projets\C#\APPS\LecteurEMLFiles\LecteurEMLFiles\bin\Debug\net5.0-windows\MaterialDesignColors.dll
+J:\Projets\C#\APPS\LecteurEMLFiles\LecteurEMLFiles\bin\Debug\net5.0-windows\MaterialDesignThemes.Wpf.dll
