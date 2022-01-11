@@ -45,12 +45,13 @@ namespace LecteurEMLFiles
                 list.Add(new DataObject() { A = "Headers", B = "Content", ColorA = backgroundHead, ColorB = backgroundHead, ForegroundA = colorHead, ForegroundB = colorHead });
                 list.Add(new DataObject() { A = "From", B = msg.From, ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
                 list.Add(new DataObject() { A = "To", B = msg.To, ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
-                list.Add(new DataObject() { A = "Date", B = msg.ReceivedTime.ToString(), ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
+                list.Add(new DataObject() { A = "Date", B = msg.SentOn.ToString(), ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
                 list.Add(new DataObject() { A = "Subject", B = msg.Subject, ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
                 list.Add(new DataObject() { A = "Message", B = msg.TextBody, ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
                 
                 if(msg.Attachments.Count > 1)
                 {
+                    list.Add(new DataObject() { A = "Nb. Attachment ", B = msg.Attachments.Count.ToString(), ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
                     for (int i = 1; i < msg.Attachments.Count + 1; i++)
                     {
                         // //StreamReader reader = new StreamReader(msg.Attachments[i].GetStream().ReadText());
@@ -60,7 +61,7 @@ namespace LecteurEMLFiles
                         // var valueBytes = System.Convert.FromBase64String(msg.Attachments[i].GetEncodedContentStream().ReadText());
                         // Debug.WriteLine(Encoding.UTF8.GetString(valueBytes));
                         list.Add(new DataObject() { A = "Attachment " + i, B = msg.Attachments[i].FileName + " (" + msg.Attachments[i].ContentMediaType + ")" + " - " + (msg.Attachments[i].GetDecodedContentStream().Size / 1000) + "Ko", ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
-                        list.Add(new DataObject() { A = "Message", B = msg.Attachments[i].GetEncodedContentStream().ReadText(), ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
+                        //list.Add(new DataObject() { A = "Message", B = msg.Attachments[i].GetEncodedContentStream().GetType().ToString(), ColorA = backgroundData, ColorB = backgroundData, ForegroundA = colorData, ForegroundB = colorData });
                     }
                 }
                 this.Headers.ItemsSource = list;
